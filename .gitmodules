@@ -1,0 +1,6 @@
+[submodule "vim"]
+	path = vim
+	url = https://github.com/vbremond/vim-config.git
+[submodule "fish"]
+	path = fish
+	url = https://github.com/vbremond/fish-config.git
