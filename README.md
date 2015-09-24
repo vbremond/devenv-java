@@ -3,7 +3,9 @@ Docker development environment for Java
 
 # Install
     cd whereverYouWant/
-    git clone git@github.com:vbremond/dev-java.git .
+    git clone https://github.com/vbremond/dev-java.git .
+    git submodule init
+    git submodule update
     docker build -t dev/java .
     docker run -it --rm --name dev.java -v /path/to/my/java/code/:/code/ dev/java
 
