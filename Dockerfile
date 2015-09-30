@@ -6,8 +6,7 @@ ENV LOGIN vbremond
 ENV WORKDIR /code/
 # Softwares versions
 ENV JAVA_VERSION 1.8.0
-ENV MAVEN_MAJOR_VERSION 3
-ENV MAVEN_FULL_VERSION 3.3.3
+ENV GRADLE_VERSION 2.7
 
 
 
@@ -18,15 +17,16 @@ RUN yum install -y \
     tar \
     git \
     gzip \
+    unzip \
     vim-enhanced \
     java-${JAVA_VERSION}-openjdk-devel.x86_64 \
     java-${JAVA_VERSION}-openjdk-headless.x86_64
 
-RUN mkdir /usr/local/apache-maven
-RUN curl -sL http://mirror.netcologne.de/apache.org/maven/maven-${MAVEN_MAJOR_VERSION}/${MAVEN_FULL_VERSION}/binaries/apache-maven-${MAVEN_FULL_VERSION}-bin.tar.gz > /usr/local/apache-maven/apache-maven-${MAVEN_FULL_VERSION}-bin.tar.gz
-RUN tar -xzf /usr/local/apache-maven/apache-maven-${MAVEN_FULL_VERSION}-bin.tar.gz -C /usr/local/apache-maven/
+RUN mkdir /usr/local/gradle/
+RUN curl -sL https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-all.zip > /usr/local/gradle/gradle-${GRADLE_VERSION}-all.zip
+RUN unzip /usr/local/gradle/gradle-${GRADLE_VERSION}-all.zip -d /usr/local/gradle/
 
-ENV PATH $PATH:/usr/local/apache-maven/apache-maven-${MAVEN_FULL_VERSION}/bin
+ENV PATH $PATH:/usr/local/gradle/gradle-${GRADLE_VERSION}/bin/
 
 RUN adduser --user-group --uid 1000 --home /home/$LOGIN $LOGIN
 
@@ -35,6 +35,9 @@ COPY vim/ /home/$LOGIN/.vim/
 COPY vim/vimrc /home/$LOGIN/.vimrc
 
 RUN chown -R $LOGIN:$LOGIN /home/$LOGIN/
+
+RUN mkdir /$WORKDIR/
+RUN chown -R $LOGIN:$LOGIN /$WORKDIR/
 
 USER $LOGIN
 WORKDIR $WORKDIR

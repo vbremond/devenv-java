@@ -17,7 +17,7 @@ If you want to develop Java applications but you don't want to mess around with 
 # What is included?
 
 - Java 1.8.0 (OpenJDK)
-- Apache Maven 3.3.3
+- Gradle 2.7
 - git
 - vim (with Pathogen and Syntastic)
 - the wonderful Fish shell (you'd better have a look at [the documentation](http://fishshell.com/docs/current/) if you have no idea what I'm talking about, but trust me, it's worth the try!)
