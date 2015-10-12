@@ -2,6 +2,8 @@ FROM centos
 
 # The developer's username
 ENV LOGIN vbremond
+# The language this container is about
+ENV CONTAINER_LANGUAGE java
 # Where to store the code in the container
 ENV WORKDIR /code/
 # Softwares versions
