@@ -1,13 +1,13 @@
-# dev-java
+# devenv-java
 Docker development environment for Java
 
 # Install
     cd whereverYouWant/
-    git clone https://github.com/vbremond/dev-java.git .
+    git clone https://github.com/vbremond/devenv-java.git .
     git submodule init
     git submodule update
-    docker build -t dev/java .
-    docker run -it --rm --name dev.java -v /path/to/my/java/code/:/code/ dev/java
+    docker build -t devenv/java:1.8.0 .
+    docker run -it --rm --name devenv.java -v /path/to/my/java/code/:/code/ devenv/java:1.8.0
 
 # What is this?
 
