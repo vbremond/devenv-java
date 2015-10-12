@@ -26,7 +26,7 @@ RUN yum install -y \
 
 RUN mkdir /usr/local/gradle/
 RUN curl -sL https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-all.zip > /usr/local/gradle/gradle-${GRADLE_VERSION}-all.zip
-RUN unzip /usr/local/gradle/gradle-${GRADLE_VERSION}-all.zip -d /usr/local/gradle/
+RUN unzip -q /usr/local/gradle/gradle-${GRADLE_VERSION}-all.zip -d /usr/local/gradle/
 
 ENV PATH $PATH:/usr/local/gradle/gradle-${GRADLE_VERSION}/bin/
 
